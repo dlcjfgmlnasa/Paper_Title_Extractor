@@ -1,5 +1,3 @@
-# coding: utf-8
-
 """
 <<사용 예시>>
 
@@ -35,8 +33,9 @@ class Pre:
 
     def posTag(self, file):
         for i, f in enumerate(file):
+            f.lower()
             tag = pos_tag(word_tokenize(f))
-            if i:
+            if i%2:
                 abstract = tag
                 abstract.append('[SEP]')
             else:
@@ -71,4 +70,3 @@ class Pre:
         tagged_list = self.shaper(tagged_list)
         print('='*20,'데이터 쓰기 완료','='*20)
         self.write(tagged_list)
-
